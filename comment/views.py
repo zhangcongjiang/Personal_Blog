@@ -1,11 +1,13 @@
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
-from notifications.signals import notify
 
-from article.models import ArticlePost
-from comment.models import Comment
 from .forms import CommentForm
+from article.models import ArticlePost
+from .models import Comment
+
+from notifications.signals import notify
+from django.contrib.auth.models import User
 
 
 # 文章评论
